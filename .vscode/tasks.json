@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Home Assistant Addon",
+      "type": "shell",
+      "command": "docker run --rm --privileged -v ~/.docker:/root/.docker -v /:/data ghcr.io/home-assistant/armv7-builder:latest --all -t /data",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
