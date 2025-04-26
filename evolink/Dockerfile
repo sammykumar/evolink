@@ -10,7 +10,14 @@ FROM $BUILD_FROM
 # Install dependencies
 RUN apk add --no-cache \
     ca-certificates \
-    gcc
+    gcc \
+    gstreamer \
+    gstreamer-tools \
+    gstreamer-dev \
+    gst-plugins-base \
+    gst-plugins-good \
+    gst-plugins-bad \
+    gst-libav
 
 # Set Environment Variables    
 ENV RUSTUP_HOME=/usr/local/rustup \
