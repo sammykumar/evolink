@@ -1,3 +1,3 @@
 #!/usr/bin/with-contenv bashio
 
-echo "Hello world! test"
+echo "Evolink test"
