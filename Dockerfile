@@ -9,4 +9,12 @@ RUN chmod a+x /run.sh
 
 CMD [ "/run.sh" ]
 
-# Test
+# Docker Build
+# docker run \
+# 	--rm \
+# 	--privileged \
+# 	-v ~/.docker:/root/.docker \
+# 	-v /my_addon:/data \
+#     ghcr.io/home-assistant/amd64-builder:latest \
+# 		--all \
+# 		-t /data
