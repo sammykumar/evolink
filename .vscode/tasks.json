@@ -2,13 +2,23 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build Home Assistant Addon",
+      "label": "Build Evolink",
       "type": "shell",
-      "command": "docker run --rm --privileged -v ~/.docker:/root/.docker -v /:/data ghcr.io/home-assistant/armv7-builder:latest --all -t /data",
+      "command": "docker run --rm -it --name builder --privileged -v /Users/samkumar/Development/SK-Productions-LLC/Home-Assistant/evolink-addon/evolink:/data -v /var/run/docker.sock:/var/run/docker.sock:ro ghcr.io/home-assistant/armv7-builder -t /data --all --test -i evolink-addon-armv7 -d local",
       "problemMatcher": [],
       "group": {
         "kind": "build",
         "isDefault": true
+      }
+    },
+    {
+      "label": "Run Evolink",
+      "type": "shell",
+      "command": "docker run --rm -v /tmp/my_test_data:/data local/evolink-addon-armv7",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": false
       }
     }
   ]
