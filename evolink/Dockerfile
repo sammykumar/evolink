@@ -15,6 +15,12 @@ ENV RUSTUP_HOME=/usr/local/rustup \
 
 # Install dependencies
 RUN apk add --no-cache \
+    build-base \
+    musl-dev \
+    gcc \
+    libc-dev \
+    pkgconfig \
+    openssl-dev \
     ca-certificates \
     gcc \
     gstreamer \
@@ -31,8 +37,8 @@ RUN apk add --no-cache \
 RUN curl -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain $RUST_VERSION
 
 # Set working directory and copy source code
-WORKDIR /usr/local/src/neolink
-COPY . /usr/local/src/neolink
+WORKDIR /usr/local/src/evolink
+COPY . /usr/local/src/evolink
 
 # Build Neolink
 RUN ls -als
