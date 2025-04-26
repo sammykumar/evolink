@@ -26,6 +26,22 @@
       "presentation": {
         "clear": true
       }
+    },
+    {
+      "label": "Build Neolink Rust Project",
+      "type": "shell",
+      "command": "cargo build",
+      "options": {
+        "cwd": "${workspaceFolder}/evolink/neolink"
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "clear": true
+      }
     }
   ]
 }
