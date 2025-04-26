@@ -1,3 +1,4 @@
 #!/usr/bin/with-contenv bashio
 
-echo "Evolink test"
+echo "Evolink Addon Test"
+rustc --version
