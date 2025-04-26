@@ -7,6 +7,12 @@ FROM $BUILD_FROM
 
 # Alpine Image with Rust Port
 
+# Set Environment Variables    
+ENV RUSTUP_HOME=/usr/local/rustup \
+    CARGO_HOME=/usr/local/cargo \
+    PATH=/usr/local/cargo/bin:$PATH \
+    RUST_VERSION=stable
+
 # Install dependencies
 RUN apk add --no-cache \
     ca-certificates \
@@ -19,17 +25,17 @@ RUN apk add --no-cache \
     gst-plugins-bad \
     gst-libav
 
-# Set Environment Variables    
-ENV RUSTUP_HOME=/usr/local/rustup \
-    CARGO_HOME=/usr/local/cargo \
-    PATH=/usr/local/cargo/bin:$PATH \
-    RUST_VERSION=stable
-
-
 # TODO: Implement the architecture logic to download the correct Rust version
 
 # Install Rust
 RUN curl -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain $RUST_VERSION
+
+# Set working directory and copy source code
+WORKDIR /usr/local/src/neolink
+COPY . /usr/local/src/neolink
+
+# Build Neolink
+RUN ls -als
 
 COPY run.sh /
 RUN chmod a+x /run.sh
