@@ -4,11 +4,14 @@
     {
       "label": "Build Evolink",
       "type": "shell",
-      "command": "docker run --rm -it --name builder --privileged -v /Users/samkumar/Development/SK-Productions-LLC/Home-Assistant/evolink-addon/evolink:/data -v /var/run/docker.sock:/var/run/docker.sock:ro ghcr.io/home-assistant/armv7-builder -t /data --all --test -i evolink-addon-armv7 -d local",
+      "command": "cd evolink && docker build --build-arg BUILD_FROM=\"ghcr.io/home-assistant/aarch64-base:latest\" -t local/evolink-addon .",
       "problemMatcher": [],
       "group": {
         "kind": "build",
         "isDefault": true
+      },
+      "presentation": {
+        "clear": true
       }
     },
     {
