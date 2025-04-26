@@ -17,11 +17,14 @@
     {
       "label": "Run Evolink",
       "type": "shell",
-      "command": "docker run --rm -v /tmp/my_test_data:/data local/evolink-addon-armv7",
+      "command": "docker run --rm -v /tmp/my_test_data:/data local/evolink-addon",
       "problemMatcher": [],
       "group": {
         "kind": "test",
         "isDefault": false
+      },
+      "presentation": {
+        "clear": true
       }
     }
   ]
