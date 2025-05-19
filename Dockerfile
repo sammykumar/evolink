@@ -12,7 +12,6 @@ RUN apk update && \
       gst-plugins-bad \
       gst-plugins-base \
       gst-plugins-good \
-      gst-plugins-bad \
       openssl
 
 # Copy data for add-on
