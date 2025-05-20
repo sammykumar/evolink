@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "docker: build evolink container",
+      "type": "shell",
+      "command": "cd evolink && docker build --build-arg BUILD_FROM=\"ghcr.io/home-assistant/aarch64-base:latest\" -t local/evolink-addon .",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "clear": true
+      }
+    },
+    {
+      "label": "docker: run evolink container",
+      "type": "shell",
+      "command": "docker run --rm -v /tmp/my_test_data:/data local/evolink-addon",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      },
+      "presentation": {
+        "clear": true
+      }
+    },
+    {
+      "label": "rust: build neolink",
+      "type": "shell",
+      "command": "cargo build",
+      "options": {
+        "cwd": "${workspaceFolder}/evolink/neolink"
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "clear": true
+      }
+    }
+  ]
+}

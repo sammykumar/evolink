@@ -1,0 +1,17 @@
+# docker run --name neolink-server -p 8554:8554 --volume=$PWD/config.toml:/etc/neolink.toml -d quantumentangledandy/neolink:v0.6.2
+
+# neolink ptz --config=/etc/neolink.toml "Backyard 2" zoom 2.5
+# neolink battery --config=/etc/neolink.toml Backyard-2
+
+# rtsp://admin:%40M1gr82025!@192.168.50.6:8554/backyard_2
+
+bind = "0.0.0.0"
+
+[[cameras]]
+name = "backyard_2"
+username = "admin"
+password = "@M1gr82025!"
+uid = "9527000960V21RLK"
+address = "192.168.50.202"
+discovery = "remote"
+push_notifications = false
